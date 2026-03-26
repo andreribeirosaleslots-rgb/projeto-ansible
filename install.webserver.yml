@@ -1,0 +1,29 @@
+# Título da execução do playbook (aparece no terminal)
+- name: Installing & starting ngnix
+
+  # Define os hosts-alvo (todos os do inventário)
+  hosts: all
+
+  # Garante que os comandos sejam executados com privilégios de superusuário (sudo)
+  become: yes
+
+  # Lista de tarefas a serem executadas
+  tasks:
+
+    # 1ª tarefa: Instala o nginx usando o YUM (usado em sistemas RHEL/CentOS)
+    - name: Installing nginx
+      yum:
+        update_cache: yes   # Atualiza a lista de pacotes antes de instalar
+        name: nginx         # Nome do pacote a ser instalado
+        state: latest       # Garante que será instalada a versão mais recente disponível
+
+    # 2ª tarefa: Inicia o serviço do nginx usando o comando shell
+    - name: Starting nginx
+      shell: systemctl start nginx
+      # OBS: Módulos `service` ou `systemd` fornece maior controle e idempotência!
+
+    # 3ª tarefa: Habilita o nginx para iniciar automaticamente durante o boot
+    - name: Enable the NGINX service during boot process
+      service:
+        name: nginx         # Nome do serviço
+        enabled: yes        # Habilita o serviço na inicialização do sistema
