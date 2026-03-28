@@ -1,0 +1,5 @@
+Aplicação: MeuApp
+Versão: 1.0.2
+Ambiente: Desenvolvimento
+Sistema: Ubuntu 22.04
+Desenvolvedores: Ana, Bruno, Carla

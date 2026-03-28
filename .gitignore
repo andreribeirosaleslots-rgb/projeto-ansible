@@ -1,7 +1,14 @@
+# =========================
+
 # Terraform
+
+# =========================
+
 .terraform/
 *.tfstate
 *.tfstate.*
+*.tfvars
+*.tfvars.json
 crash.log
 override.tf
 override.tf.json
@@ -9,13 +16,65 @@ override.tf.json
 *_override.tf.json
 .terraform.lock.hcl
 
-# Sensitive files
-*.pem
-*.key
+# =========================
 
 # Ansible
+
+# =========================
+
 *.retry
 
-# OS / lixo
+# =========================
+
+# Logs
+
+# =========================
+
+*.log
+
+# =========================
+
+# Sensitive / Secrets
+
+# =========================
+
+*.pem
+*.key
+*.pub
+*.env
+
+# =========================
+
+# System files
+
+# =========================
+
 .DS_Store
 Thumbs.db
+
+# =========================
+
+# VSCode
+
+# =========================
+
+.vscode/
+
+# =========================
+
+# Build / temp files
+
+# =========================
+
+*.out
+*.tmp
+*.bak
+
+# =========================
+
+# Python (caso use Ansible local)
+
+# =========================
+
+**pycache**/
+*.pyc
