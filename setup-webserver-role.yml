@@ -1,0 +1,6 @@
+- name: Setup Webserver Role
+  hosts: webservers
+  become: yes
+  
+  roles:
+    - role/webserver/
